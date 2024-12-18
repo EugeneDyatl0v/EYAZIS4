@@ -1,0 +1,15 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-toolbar color="primary">
+            <mat-toolbar-row>
+                <span>Translator</span>
+                <span class="example-spacer"></span>
+                <button mat-icon-button class="example-icon" (click)="drawer.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </mat-toolbar-row>
+        </mat-toolbar>
+    <mat-drawer #drawer class="example-sidenav" mode="over" position="end">
+        <p>Auto-resizing sidenav</p>
+    </mat-drawer>
+    <router-outlet></router-outlet>
+</mat-drawer-container>

@@ -1,0 +1,13 @@
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let sentence of dataSource" hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{ sentence.value }}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="svg-container">
+            <div [innerHTML]="getImage(sentence.image)"></div>
+        </div>
+
+    </mat-expansion-panel>
+</mat-accordion>
