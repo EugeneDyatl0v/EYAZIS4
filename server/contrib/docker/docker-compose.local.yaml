@@ -1,0 +1,58 @@
+services:
+  postgres:
+    build:
+      context: ../../../
+      dockerfile: server/contrib/docker/postgres/Dockerfile
+    restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    command:
+      - "postgres"
+      - "-c"
+      - "config_file=/etc/postgresql.conf"
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./postgres/postgresql.conf:/etc/postgresql.conf
+
+  migrations:
+    image: translator-migrations
+    build:
+      context: ../../../
+      dockerfile: server/contrib/docker/migrations/Dockerfile
+    environment: &database_env
+      DATABASE_URL: ${DATABASE_URL}
+      DATABASE_HOST: ${DATABASE_HOST:-postgres}
+      DATABASE_PORT: ${DATABASE_PORT:-5432}
+
+    depends_on:
+      - postgres
+
+  nginx:
+    image: nginx:1.21
+    volumes:
+      - ./nginx/nginx.conf.template:/etc/nginx/templates/nginx_api.conf.template:ro
+    ports:
+      - 8001:8001
+    depends_on:
+      - translator_api
+
+  translator_api:
+    image: translator-api
+    build:
+      context: ../../../
+      dockerfile: server/contrib/docker/fastapi/Dockerfile
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    volumes:
+      - ../../api/:/app/api
+    depends_on:
+      - migrations
+
+
+volumes:
+  pg_data:
+    driver: local

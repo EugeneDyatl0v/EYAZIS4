@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
+from server.api.article.views import article_router
 app = FastAPI(
-    openapi_prefix='v1'
 )
 
+app.include_router(article_router)

@@ -1,1 +1,11 @@
 fastapi==0.115.6
+sqlalchemy==2.0.36
+pydantic==2.8.2
+alembic==1.13.2
+uvicorn==0.30.5
+asyncpg==0.29.0
+googletrans==4.0.0rc1
+pymorphy3==2.0.2
+setuptools==75.6.0
+nltk==3.9.1
+spacy==3.8.3
