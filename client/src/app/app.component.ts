@@ -8,6 +8,7 @@ import {MatIconButton} from "@angular/material/button";
 import {MatDrawer, MatDrawerContainer} from "@angular/material/sidenav";
 import {ArticleComponent} from "./component/article/article.component";
 import {ArticleTextComponent} from "./component/article-text/article-text.component";
+import {HttpClientModule} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,7 @@ import {ArticleTextComponent} from "./component/article-text/article-text.compon
         MatDrawer,
         ArticleComponent,
         ArticleTextComponent,
+        HttpClientModule,
         RouterOutlet
     ],
   templateUrl: './app.component.html',

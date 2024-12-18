@@ -1,4 +1,4 @@
 export interface Word {
-    name: string,
-    partOfTheSpeechTag: string,
+    word: string,
+    part_of_speech: string
 }

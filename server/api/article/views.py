@@ -191,10 +191,11 @@ class SpeechPartSchemaSchema:
     pass
 
 
-@article_router.get('/{id}/words/speech-parts')
+@article_router.get('/{id}/words/speech-parts/')
 async def get_article_words_speech_parts(
-        id: uuid.UUID
+        id: str
 ):
+    print('111')
     async with get_session() as session:
         query = select(ArticleModel).filter_by(id=id)
         result = await session.execute(query)

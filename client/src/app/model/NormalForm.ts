@@ -1,4 +1,4 @@
 export interface NormalForm {
-    normalForm: string,
-    amount: number
+    normal_form: string,
+    frequency_count: number
 }

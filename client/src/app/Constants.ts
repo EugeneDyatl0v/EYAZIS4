@@ -1,3 +1,3 @@
 export class Constants {
-    BACKEND_URL: string = "http://localhost:8001"
+    static BACKEND_URL: string = "http://localhost:8001"
 }
