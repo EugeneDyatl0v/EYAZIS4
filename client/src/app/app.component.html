@@ -8,22 +8,31 @@
                 </button>
             </mat-toolbar-row>
         </mat-toolbar>
+
     <mat-drawer #drawer class="example-sidenav" mode="over" position="end">
-
-
-      <mat-list>
-        <h3 mat-subheader>Articles</h3>
+      <mat-list class="articles-list">
+        <h3 mat-subheader class="list-header">Articles</h3>
         <ng-container *ngFor="let article of articles; let last = last">
           <mat-list-item>
-            <mat-icon mat-list-icon>article</mat-icon>
-            <h4 mat-line> <a [href]="['/articles/'+article.id+'/']">{{ article.title }} </a></h4>
+            <div class="article-item">
+              <mat-icon mat-list-icon class="article-icon">article</mat-icon>
+              <div class="article-content">
+                <button class="article-title" (click)="openText(article.id!)">
+                  {{ article.title }}
+                </button>
+                <button
+                  *ngIf="article.is_original"
+                  mat-icon-button
+                  class="translate-button"
+                  (click)="translateText(article.id!, article.source_language)">
+                  <mat-icon>g_translate</mat-icon>
+                </button>
+              </div>
+            </div>
             <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
           </mat-list-item>
         </ng-container>
       </mat-list>
-
-
-
-    </mat-drawer>
+</mat-drawer>
     <router-outlet></router-outlet>
 </mat-drawer-container>
