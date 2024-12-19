@@ -62,3 +62,7 @@ mat-list-item {
 mat-divider {
   margin: 4px 0;
 }
+
+mat-icon[routerLink] {
+    cursor: pointer;
+}

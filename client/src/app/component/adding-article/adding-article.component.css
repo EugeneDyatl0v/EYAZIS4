@@ -1,0 +1,33 @@
+.article-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px; /* Расстояние между элементами */
+    max-width: 400px; /* Ограничиваем ширину формы */
+    margin: 0 auto; /* Центрируем форму по горизонтали */
+    padding: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    border-radius: 8px; /* Сглаженные углы */
+    background-color: #f9f9f9; /* Светлый фон */
+}
+
+mat-form-field {
+    width: 100%; /* Поля формы занимают всю ширину контейнера */
+}
+
+textarea {
+    resize: none; /* Убираем возможность изменения размера текстового поля */
+}
+
+button {
+    width: 100%; /* Кнопка занимает всю ширину контейнера */
+    font-size: 16px; /* Делаем текст на кнопке крупнее */
+    padding: 12px; /* Увеличиваем внутренние отступы для большей кнопки */
+}
+
+@media (min-width: 600px) {
+    .article-form {
+        max-width: 500px; /* Увеличиваем ширину формы на больших экранах */
+    }
+}

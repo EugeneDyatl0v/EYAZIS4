@@ -20,7 +20,7 @@ export class ArticleServiceService {
   }
 
   createArticle(article: Article) {
-    return this.http.post(this.url, article)
+    return this.http.post<ResponseData<Article>>(this.url, article)
   }
 
   deleteArticle(id: string) {

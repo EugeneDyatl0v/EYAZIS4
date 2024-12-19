@@ -81,10 +81,12 @@ async def create_article(
 
         session.add(new_article)
         await session.commit()
+        await session.refresh(new_article)
 
-        return JSONResponse(
-            {'message': 'Successfully created article'},
-            200
+        return ArticleResponseSchema(
+            success=True,
+            message='Article successfully created.',
+            data=ArticleOutSchema.model_validate(new_article)
         )
 
 
