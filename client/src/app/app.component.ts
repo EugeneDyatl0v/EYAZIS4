@@ -49,7 +49,6 @@ export class AppComponent  implements OnInit{
 
   constructor(
     private service: ArticleServiceService,
-    private router: Router,
   ) {
   }
 
@@ -62,7 +61,7 @@ export class AppComponent  implements OnInit{
   }
 
   openText(id: string) {
-    this.router.navigate([`/articles/${id}/`])
+    window.location.href = `/articles/${id}/`;
   }
 
   translateText(id: string, language: string) {
