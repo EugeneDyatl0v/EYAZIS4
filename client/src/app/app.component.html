@@ -9,7 +9,21 @@
             </mat-toolbar-row>
         </mat-toolbar>
     <mat-drawer #drawer class="example-sidenav" mode="over" position="end">
-        <p>Auto-resizing sidenav</p>
+
+
+      <mat-list>
+        <h3 mat-subheader>Articles</h3>
+        <ng-container *ngFor="let article of articles; let last = last">
+          <mat-list-item>
+            <mat-icon mat-list-icon>article</mat-icon>
+            <h4 mat-line> <a [href]="['/articles/'+article.id+'/']">{{ article.title }} </a></h4>
+            <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+          </mat-list-item>
+        </ng-container>
+      </mat-list>
+
+
+
     </mat-drawer>
     <router-outlet></router-outlet>
 </mat-drawer-container>
